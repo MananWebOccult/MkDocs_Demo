@@ -1,4 +1,4 @@
-site_name: My Docs
+site_name: Fried-Tofu-Counting
 theme : 
   name: material
   features:
@@ -12,3 +12,11 @@ theme :
     - header.autohide
     - header.sticky
     - navigation.top
+nav:
+  - Home : index.md
+  - Tofu-Counting : 
+      - tofu_counting/index.md
+      - Introduction : tofu_counting/introduction.md
+      - Estimation : tofu_counting/estimation.md
+      - Approaches : tofu_counting/approaches.md
+      - Dataset Info : tofu_counting/dataset_info.md
