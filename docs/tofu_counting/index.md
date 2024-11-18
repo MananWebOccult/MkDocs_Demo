@@ -12,9 +12,3 @@ Prepared by: **Manan Patel**
 5. [Dataset Information](dataset_info.md)
 
 ---
-
-## Hardware Specifications / Tech Stack
-- **System**: Jetson Orien Nano
-- **Performance**: ~23 FPS
-
----
