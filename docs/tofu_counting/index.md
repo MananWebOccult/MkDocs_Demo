@@ -11,8 +11,6 @@ Prepared by: **Manan Patel**
 4. [Hardware Specifications / Tech Stack](#hardware-specifications--tech-stack)
 5. [Dataset Information](dataset_info.md)
 6. [Implementation Instructions](#implementation-instructions)
-7. [Results with Performance Metrics](#results-with-performance-metrics)
-8. [Explanation of False Cases](#explanation-of-false-cases)
 
 ---
 
