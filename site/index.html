@@ -1,0 +1,850 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Discover Ultralytics YOLO - the latest in real-time object detection and image segmentation. Learn its features and maximize its potential in your projects.">
+      
+      
+      
+      
+      
+        <link rel="next" href="tofu_counting/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#where-to-start" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="tofu_counting/" class="md-tabs__link">
+          
+  
+  Tofu counting
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where to Start
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yolo-a-brief-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      YOLO: A Brief History
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yolo-licenses-how-is-ultralytics-yolo-licensed" class="md-nav__link">
+    <span class="md-ellipsis">
+      YOLO Licenses: How is Ultralytics YOLO licensed?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      FAQ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-ultralytics-yolo-and-how-does-it-improve-object-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Ultralytics YOLO and how does it improve object detection?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-get-started-with-yolo-installation-and-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      How can I get started with YOLO installation and setup?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-train-a-custom-yolo-model-on-my-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      How can I train a custom YOLO model on my dataset?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-the-licensing-options-available-for-ultralytics-yolo" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are the licensing options available for Ultralytics YOLO?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-ultralytics-yolo-be-used-for-real-time-object-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      How can Ultralytics YOLO be used for real-time object tracking?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tofu counting
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tofu counting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tofu_counting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fried-Tofu-Counting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where to Start
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yolo-a-brief-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      YOLO: A Brief History
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yolo-licenses-how-is-ultralytics-yolo-licensed" class="md-nav__link">
+    <span class="md-ellipsis">
+      YOLO Licenses: How is Ultralytics YOLO licensed?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      FAQ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-ultralytics-yolo-and-how-does-it-improve-object-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Ultralytics YOLO and how does it improve object detection?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-get-started-with-yolo-installation-and-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      How can I get started with YOLO installation and setup?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-train-a-custom-yolo-model-on-my-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      How can I train a custom YOLO model on my dataset?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-the-licensing-options-available-for-ultralytics-yolo" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are the licensing options available for Ultralytics YOLO?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-ultralytics-yolo-be-used-for-real-time-object-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      How can Ultralytics YOLO be used for real-time object tracking?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Home</h1>
+
+<div align="center">
+<a href="https://www.ultralytics.com/events/yolovision" target="_blank"><img width="1024%" src="https://github.com/ultralytics/docs/releases/download/0/ultralytics-yolov8-banner.avif" alt="Ultralytics YOLO banner"></a>
+<a href="https://docs.ultralytics.com/zh">中文</a> |
+<a href="https://docs.ultralytics.com/ko">한국어</a> |
+<a href="https://docs.ultralytics.com/ja">日本語</a> |
+<a href="https://docs.ultralytics.com/ru">Русский</a> |
+<a href="https://docs.ultralytics.com/de">Deutsch</a> |
+<a href="https://docs.ultralytics.com/fr">Français</a> |
+<a href="https://docs.ultralytics.com/es/">Español</a> |
+<a href="https://docs.ultralytics.com/pt">Português</a> |
+<a href="https://docs.ultralytics.com/tr">Türkçe</a> |
+<a href="https://docs.ultralytics.com/vi">Tiếng Việt</a> |
+<a href="https://docs.ultralytics.com/ar">العربية</a>
+<br>
+<br>
+    <a href="https://github.com/ultralytics/ultralytics/actions/workflows/ci.yaml"><img src="https://github.com/ultralytics/ultralytics/actions/workflows/ci.yaml/badge.svg" alt="Ultralytics CI"></a>
+    <a href="https://www.pepy.tech/projects/ultralytics"><img src="https://static.pepy.tech/badge/ultralytics" alt="Ultralytics Downloads"></a>
+    <a href="https://zenodo.org/badge/latestdoi/264818686"><img src="https://zenodo.org/badge/264818686.svg" alt="Ultralytics YOLO Citation"></a>
+    <a href="https://discord.com/invite/ultralytics"><img alt="Ultralytics Discord" src="https://img.shields.io/discord/1089800235347353640?logo=discord&logoColor=white&label=Discord&color=blue"></a>
+    <a href="https://community.ultralytics.com/"><img alt="Ultralytics Forums" src="https://img.shields.io/discourse/users?server=https%3A%2F%2Fcommunity.ultralytics.com&logo=discourse&label=Forums&color=blue"></a>
+    <a href="https://reddit.com/r/ultralytics"><img alt="Ultralytics Reddit" src="https://img.shields.io/reddit/subreddit-subscribers/ultralytics?style=flat&logo=reddit&logoColor=white&label=Reddit&color=blue"></a>
+    <br>
+    <a href="https://console.paperspace.com/github/ultralytics/ultralytics"><img src="https://assets.paperspace.io/img/gradient-badge.svg" alt="Run Ultralytics on Gradient"></a>
+    <a href="https://colab.research.google.com/github/ultralytics/ultralytics/blob/main/examples/tutorial.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open Ultralytics In Colab"></a>
+    <a href="https://www.kaggle.com/models/ultralytics/yolo11"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open Ultralytics In Kaggle"></a>
+    <a href="https://mybinder.org/v2/gh/ultralytics/ultralytics/HEAD?labpath=examples%2Ftutorial.ipynb"><img src="https://mybinder.org/badge_logo.svg" alt="Open Ultralytics In Binder"></a>
+</div>
+
+<p>Introducing <a href="https://www.ultralytics.com/">Ultralytics</a> <a href="https://github.com/ultralytics/ultralytics">YOLO11</a>, the latest version of the acclaimed real-time object detection and image segmentation model. YOLO11 is built on cutting-edge advancements in <a href="https://www.ultralytics.com/glossary/deep-learning-dl">deep learning</a> and <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a>, offering unparalleled performance in terms of speed and <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>. Its streamlined design makes it suitable for various applications and easily adaptable to different hardware platforms, from edge devices to cloud APIs.</p>
+<p>Explore the Ultralytics Docs, a comprehensive resource designed to help you understand and utilize its features and capabilities. Whether you are a seasoned <a href="https://www.ultralytics.com/glossary/machine-learning-ml">machine learning</a> practitioner or new to the field, this hub aims to maximize YOLO's potential in your projects</p>
+<div align="center">
+  <br>
+  <a href="https://github.com/ultralytics"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-github.png" width="3%" alt="Ultralytics GitHub"></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
+  <a href="https://www.linkedin.com/company/ultralytics/"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-linkedin.png" width="3%" alt="Ultralytics LinkedIn"></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
+  <a href="https://twitter.com/ultralytics"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-twitter.png" width="3%" alt="Ultralytics Twitter"></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
+  <a href="https://youtube.com/ultralytics?sub_confirmation=1"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-youtube.png" width="3%" alt="Ultralytics YouTube"></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
+  <a href="https://www.tiktok.com/@ultralytics"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-tiktok.png" width="3%" alt="Ultralytics TikTok"></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
+  <a href="https://ultralytics.com/bilibili"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-bilibili.png" width="3%" alt="Ultralytics BiliBili"></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
+  <a href="https://discord.com/invite/ultralytics"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-discord.png" width="3%" alt="Ultralytics Discord"></a>
+</div>
+
+<h2 id="where-to-start">Where to Start</h2>
+<div class="grid cards" markdown>
+
+- :material-clock-fast:{ .lg .middle } &nbsp; **Getting Started**
+
+    ***
+
+    Install `ultralytics` with pip and get up and running in minutes to train a YOLO model
+
+    ***
+
+    [:octicons-arrow-right-24: Quickstart](quickstart.md)
+
+- :material-image:{ .lg .middle } &nbsp; **Predict**
+
+    ***
+
+    Predict on new images, videos and streams with YOLO <br /> &nbsp;
+
+    ***
+
+    [:octicons-arrow-right-24: Learn more](modes/predict.md)
+
+- :fontawesome-solid-brain:{ .lg .middle } &nbsp; **Train a Model**
+
+    ***
+
+    Train a new YOLO model on your own custom dataset from scratch or load and train on a pretrained model
+
+    ***
+
+    [:octicons-arrow-right-24: Learn more](modes/train.md)
+
+- :material-magnify-expand:{ .lg .middle } &nbsp; **Explore Tasks**
+
+    ***
+
+    Discover YOLO tasks like detect, segment, classify, pose, OBB and track <br /> &nbsp;
+
+    ***
+
+    [:octicons-arrow-right-24: Explore Tasks](tasks/index.md)
+
+- :rocket:{ .lg .middle } &nbsp; **Explore YOLO11 NEW**
+
+    ***
+
+    Discover Ultralytics' latest state-of-the-art YOLO11 models and their capabilities <br /> &nbsp;
+
+    ***
+
+    [:octicons-arrow-right-24: YOLO11 Models 🚀 NEW](models/yolo11.md)
+
+- :material-scale-balance:{ .lg .middle } &nbsp; **Open Source, AGPL-3.0**
+
+    ***
+
+    Ultralytics offers two licensing options for YOLO: AGPL-3.0 License and Enterprise License. Ultralytics is available on [GitHub](https://github.com/ultralytics/ultralytics)
+
+    ***
+
+    [:octicons-arrow-right-24: License](https://www.ultralytics.com/license)
+
+</div>
+
+<p align="center">
+  <br>
+  <iframe loading="lazy" width="720" height="405" src="https://www.youtube.com/embed/LNwODJXcvt4?si=7n1UvGRLSd9p5wKs"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+  <br>
+  <strong>Watch:</strong> How to Train a YOLO model on Your Custom Dataset in <a href="https://colab.research.google.com/github/ultralytics/ultralytics/blob/main/examples/tutorial.ipynb" target="_blank">Google Colab</a>.
+</p>
+
+<h2 id="yolo-a-brief-history">YOLO: A Brief History</h2>
+<p><a href="https://arxiv.org/abs/1506.02640">YOLO</a> (You Only Look Once), a popular <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a> and <a href="https://www.ultralytics.com/glossary/image-segmentation">image segmentation</a> model, was developed by Joseph Redmon and Ali Farhadi at the University of Washington. Launched in 2015, YOLO quickly gained popularity for its high speed and accuracy.</p>
+<ul>
+<li><a href="https://arxiv.org/abs/1612.08242">YOLOv2</a>, released in 2016, improved the original model by incorporating batch normalization, anchor boxes, and dimension clusters.</li>
+<li><a href="https://pjreddie.com/media/files/papers/YOLOv3.pdf">YOLOv3</a>, launched in 2018, further enhanced the model's performance using a more efficient backbone network, multiple anchors and spatial pyramid pooling.</li>
+<li><a href="https://arxiv.org/abs/2004.10934">YOLOv4</a> was released in 2020, introducing innovations like Mosaic <a href="https://www.ultralytics.com/glossary/data-augmentation">data augmentation</a>, a new anchor-free detection head, and a new <a href="https://www.ultralytics.com/glossary/loss-function">loss function</a>.</li>
+<li><a href="https://github.com/ultralytics/yolov5">YOLOv5</a> further improved the model's performance and added new features such as hyperparameter optimization, integrated experiment tracking and automatic export to popular export formats.</li>
+<li><a href="https://github.com/meituan/YOLOv6">YOLOv6</a> was open-sourced by <a href="https://about.meituan.com/">Meituan</a> in 2022 and is in use in many of the company's autonomous delivery robots.</li>
+<li><a href="https://github.com/WongKinYiu/yolov7">YOLOv7</a> added additional tasks such as pose estimation on the COCO keypoints dataset.</li>
+<li><a href="https://github.com/ultralytics/ultralytics">YOLOv8</a> released in 2023 by Ultralytics. YOLOv8 introduced new features and improvements for enhanced performance, flexibility, and efficiency, supporting a full range of vision AI tasks,</li>
+<li><a href="models/yolov9.md">YOLOv9</a> introduces innovative methods like Programmable Gradient Information (PGI) and the Generalized Efficient Layer Aggregation Network (GELAN).</li>
+<li><a href="models/yolov10.md">YOLOv10</a> is created by researchers from <a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a> using the <a href="https://www.ultralytics.com/">Ultralytics</a> <a href="https://pypi.org/project/ultralytics/">Python package</a>. This version provides real-time <a href="tasks/detect.md">object detection</a> advancements by introducing an End-to-End head that eliminates Non-Maximum Suppression (NMS) requirements.</li>
+<li><strong><a href="models/yolo11.md">YOLO11</a> 🚀 NEW</strong>: Ultralytics' latest YOLO models delivering state-of-the-art (SOTA) performance across multiple tasks, including <a href="tasks/detect.md">detection</a>, <a href="tasks/segment.md">segmentation</a>, <a href="tasks/pose.md">pose estimation</a>, <a href="modes/track.md">tracking</a>, and <a href="tasks/classify.md">classification</a>, leverage capabilities across diverse AI applications and domains.</li>
+</ul>
+<h2 id="yolo-licenses-how-is-ultralytics-yolo-licensed">YOLO Licenses: How is Ultralytics YOLO licensed?</h2>
+<p>Ultralytics offers two licensing options to accommodate diverse use cases:</p>
+<ul>
+<li><strong>AGPL-3.0 License</strong>: This <a href="https://opensource.org/license">OSI-approved</a> open-source license is ideal for students and enthusiasts, promoting open collaboration and knowledge sharing. See the <a href="https://github.com/ultralytics/ultralytics/blob/main/LICENSE">LICENSE</a> file for more details.</li>
+<li><strong>Enterprise License</strong>: Designed for commercial use, this license permits seamless integration of Ultralytics software and AI models into commercial goods and services, bypassing the open-source requirements of AGPL-3.0. If your scenario involves embedding our solutions into a commercial offering, reach out through <a href="https://www.ultralytics.com/license">Ultralytics Licensing</a>.</li>
+</ul>
+<p>Our licensing strategy is designed to ensure that any improvements to our open-source projects are returned to the community. We hold the principles of open source close to our hearts ❤️, and our mission is to guarantee that our contributions can be utilized and expanded upon in ways that are beneficial to all.</p>
+<h2 id="faq">FAQ</h2>
+<h3 id="what-is-ultralytics-yolo-and-how-does-it-improve-object-detection">What is Ultralytics YOLO and how does it improve object detection?</h3>
+<p>Ultralytics YOLO is the latest advancement in the acclaimed YOLO (You Only Look Once) series for real-time object detection and image segmentation. It builds on previous versions by introducing new features and improvements for enhanced performance, flexibility, and efficiency. YOLO supports various <a href="tasks/index.md">vision AI tasks</a> such as detection, segmentation, pose estimation, tracking, and classification. Its state-of-the-art architecture ensures superior speed and accuracy, making it suitable for diverse applications, including edge devices and cloud APIs.</p>
+<h3 id="how-can-i-get-started-with-yolo-installation-and-setup">How can I get started with YOLO installation and setup?</h3>
+<p>Getting started with YOLO is quick and straightforward. You can install the Ultralytics package using <a href="https://pypi.org/project/ultralytics/">pip</a> and get up and running in minutes. Here's a basic installation command:</p>
+<p>!!! example "Installation using pip"</p>
+<pre><code>=== "CLI"
+
+    ```bash
+    pip install ultralytics
+    ```
+</code></pre>
+<p>For a comprehensive step-by-step guide, visit our <a href="quickstart.md">quickstart guide</a>. This resource will help you with installation instructions, initial setup, and running your first model.</p>
+<h3 id="how-can-i-train-a-custom-yolo-model-on-my-dataset">How can I train a custom YOLO model on my dataset?</h3>
+<p>Training a custom YOLO model on your dataset involves a few detailed steps:</p>
+<ol>
+<li>Prepare your annotated dataset.</li>
+<li>Configure the training parameters in a YAML file.</li>
+<li>Use the <code>yolo TASK train</code> command to start training. (Each <code>TASK</code> has its own argument)</li>
+</ol>
+<p>Here's example code for the Object Detection Task:</p>
+<p>!!! example "Train Example for Object Detection Task"</p>
+<pre><code>=== "Python"
+
+    ```python
+    from ultralytics import YOLO
+
+    # Load a pre-trained YOLO model (you can choose n, s, m, l, or x versions)
+    model = YOLO("yolo11n.pt")
+
+    # Start training on your custom dataset
+    model.train(data="path/to/dataset.yaml", epochs=100, imgsz=640)
+    ```
+
+=== "CLI"
+
+    ```bash
+    # Train a YOLO model from the command line
+    yolo detect train data=path/to/dataset.yaml epochs=100 imgsz=640
+    ```
+</code></pre>
+<p>For a detailed walkthrough, check out our <a href="modes/train.md">Train a Model</a> guide, which includes examples and tips for optimizing your training process.</p>
+<h3 id="what-are-the-licensing-options-available-for-ultralytics-yolo">What are the licensing options available for Ultralytics YOLO?</h3>
+<p>Ultralytics offers two licensing options for YOLO:</p>
+<ul>
+<li><strong>AGPL-3.0 License</strong>: This open-source license is ideal for educational and non-commercial use, promoting open collaboration.</li>
+<li><strong>Enterprise License</strong>: This is designed for commercial applications, allowing seamless integration of Ultralytics software into commercial products without the restrictions of the AGPL-3.0 license.</li>
+</ul>
+<p>For more details, visit our <a href="https://www.ultralytics.com/license">Licensing</a> page.</p>
+<h3 id="how-can-ultralytics-yolo-be-used-for-real-time-object-tracking">How can Ultralytics YOLO be used for real-time object tracking?</h3>
+<p>Ultralytics YOLO supports efficient and customizable multi-object tracking. To utilize tracking capabilities, you can use the <code>yolo track</code> command as shown below:</p>
+<p>!!! example "Example for Object Tracking on a Video"</p>
+<pre><code>=== "Python"
+
+    ```python
+    from ultralytics import YOLO
+
+    # Load a pre-trained YOLO model
+    model = YOLO("yolo11n.pt")
+
+    # Start tracking objects in a video
+    # You can also use live video streams or webcam input
+    model.track(source="path/to/video.mp4")
+    ```
+
+=== "CLI"
+
+    ```bash
+    # Perform object tracking on a video from the command line
+    # You can specify different sources like webcam (0) or RTSP streams
+    yolo track source=path/to/video.mp4
+    ```
+</code></pre>
+<p>For a detailed guide on setting up and running object tracking, check our <a href="modes/track.md">tracking mode</a> documentation, which explains the configuration and practical applications in real-time scenarios.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.instant", "search", "search.highlight", "search.sticky", "toc", "toc.sticky", "header.autohide", "header.sticky", "navigation.top"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
