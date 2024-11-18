@@ -16,5 +16,5 @@ jobs:
       - name: Deploy MkDocs
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          github_token: ${{ secrets.MKDOCS_AUTO_DEPLOY }}
           publish_dir: ./site
