@@ -1,0 +1,14 @@
+site_name: My Docs
+theme : 
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - search 
+    - search.highlight
+    - search.sticky
+    - toc
+    - toc.sticky
+    - header.autohide
+    - header.sticky
+    - navigation.top
